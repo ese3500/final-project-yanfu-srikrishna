@@ -2,10 +2,10 @@
 # final-project-skeleton
 
     * Team Name: 
-    * Team Members: 
-    * Github Repository URL: 
+    * Team Members: Yanfu Ou and Srikrishna Chakravarthi
+    * Github Repository URL: https://github.com/ese3500/final-project-yanfu-srikrishna
     * Github Pages Website URL: [for final submission]
-    * Description of hardware: (embedded hardware, laptop, etc) 
+    * Description of hardware: HP ENVY x360, MacBook Air (embedded hardware, laptop, etc) 
 
 ## Final Project Proposal
 
@@ -13,6 +13,7 @@
 
 In a few sentences, describe your final project. This abstract will be used as the description in the evaluation survey forms.
 
+We are looking to build a small car-like robot which is self-driving and can avoid obstacles.
 ### 2. Motivation
 
 What is the problem that you are trying to solve? Why is this project interesting? What is the intended purpose?
