@@ -44,6 +44,7 @@ We hope to get a ultrasonic sensor-based radar system working which can map out 
 
 What do you expect to achieve by the final demonstration or after milestone 1?
 
+By the final demonstration, we hope to have a robot which is able to move around on it's own and avoid obstacles which are placed in its path. 
 ### 8. Methodology
 
 What is your approach to the problem?
@@ -52,6 +53,7 @@ What is your approach to the problem?
 ### 9. Components
 
 What major components do you need and why?
+
 We need an ultrasonic sensor to detect the presence of obstacles. 
 
 ### 10. Evaluation
