@@ -13,17 +13,18 @@
 
 In a few sentences, describe your final project. This abstract will be used as the description in the evaluation survey forms.
 
-We are looking to build a small car-like robot which is self-driving and can avoid obstacles. We hope to make our own scaled down version of an autonomous vehicle!
+We are looking to build a small car-like robot which is self-driving and can avoid obstacles by mapping its surroundings. We hope to make our own scaled down version of an autonomous vehicle!
 
 ### 2. Motivation
 
 What is the problem that you are trying to solve? Why is this project interesting? What is the intended purpose?
 
-The problem we are trying to solve is autonomous navigation across warehouse spaces while avoiding collisions with obstacles and other robots. The usage of the ultrasonic sensor to sweep 360 degrees to map objects in the surroundings makes this project interesting. Additionally, the autonomous navigation around the detected obstacles will make this project more interesting. The intended purpose of this project is to further automate warehouses and help avoid potentially dangerous accidents by reducing the need for human workers to enter storage areas.
+The problem we are trying to solve is autonomous navigation across warehouse spaces while avoiding collisions with obstacles and other robots. We envision that a human worker can place an object on our robot, which can then be transported from point A to B without the worker having to do it him/herself. The usage of the ultrasonic sensor to sweep 360 degrees to map objects in the surroundings makes this project interesting. Additionally, the autonomous navigation around the detected obstacles will make this project more interesting. The intended purpose of this project is to further automate warehouses and reduce human intervention.
 
 ### 3. Goals
 
 These are to help guide and direct your progress.
+
 
 ### 4. Software Requirements Specification (SRS)
 
