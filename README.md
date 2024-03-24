@@ -13,7 +13,8 @@
 
 In a few sentences, describe your final project. This abstract will be used as the description in the evaluation survey forms.
 
-We are looking to build a small car-like robot which is self-driving and can avoid obstacles.
+We are looking to build a small car-like robot which is self-driving and can avoid obstacles. We hope to make our own version of an autonomous vehicle!
+
 ### 2. Motivation
 
 What is the problem that you are trying to solve? Why is this project interesting? What is the intended purpose?
