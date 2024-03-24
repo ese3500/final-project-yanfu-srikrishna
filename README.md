@@ -19,6 +19,8 @@ We are looking to build a small car-like robot which is self-driving and can avo
 
 What is the problem that you are trying to solve? Why is this project interesting? What is the intended purpose?
 
+The problem we are trying to solve is autonomous navigation across warehouse spaces while avoiding collisions with obstacles and other robots. The usage of the ultrasonic sensor to sweep 360 degrees to map objects in the surroundings makes this project interesting. Additionally, the autonomous navigation around the detected obstacles will make this project more interesting. The intended purpose of this project is to further automate warehouses and help avoid potentially dangerous accidents by reducing the need for human workers to enter storage areas.
+
 ### 3. Goals
 
 These are to help guide and direct your progress.
