@@ -37,7 +37,8 @@ Formulate key hardware requirements here.
 ### 6. MVP Demo
 
 What do you expect to accomplish by the first milestone?
-We hope to get a ultrasonic sensor based radar system working which can map out the surroundings/detect the presence of obstacles. 
+
+We hope to get a ultrasonic sensor-based radar system working which can map out the surroundings/detect the presence of obstacles. 
 ### 7. Final Demo
 
 What do you expect to achieve by the final demonstration or after milestone 1?
