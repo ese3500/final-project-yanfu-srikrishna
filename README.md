@@ -38,7 +38,8 @@ Formulate key hardware requirements here.
 
 What do you expect to accomplish by the first milestone?
 
-We hope to get a ultrasonic sensor-based radar system working which can map out the surroundings/detect the presence of obstacles. 
+We hope to get a ultrasonic sensor-based radar system working which can map out the surroundings/detect the presence of obstacles.
+
 ### 7. Final Demo
 
 What do you expect to achieve by the final demonstration or after milestone 1?
@@ -47,14 +48,18 @@ What do you expect to achieve by the final demonstration or after milestone 1?
 
 What is your approach to the problem?
 
+
 ### 9. Components
 
 What major components do you need and why?
+We need an ultrasonic sensor to detect the presence of obstacles. 
 
 ### 10. Evaluation
 
 What is your metric for evaluating how well your product/solution solves the problem? Think critically on this section. Having a boolean metric such as “it works” is not very useful. This is akin to making a speaker and if it emits sound, albeit however terrible and ear wrenching, declare this a success.
 It is recommended that your project be something that you can take pride in. Oftentimes in interviews, you will be asked to talk about projects you have worked on.
+
+When testing our project, we will see what types of obstacles the robot is able to detect/avoid as well as how repeatable the process is for detection/avoidance. We can correlate the success of our project with the number of types of obstacles the robot is able to avoid. The smaller the rate of collision, the better. 
 
 ### 11. Timeline
 
