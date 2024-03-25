@@ -29,9 +29,9 @@ Goal number:
 2. Read in values from the untrasonic sensor and be able to detect objects
 3. Map surrounding objects and store their location
 4. Create the rover base and mount motors and wheels
-5. Connect and wire up the motor with the power management 
+5. Connect and wire up the motor with the power management system 
 5. Mount the rotating ultrasonic senesor on the rover base
-6. Program the automnous obstacle avoidence algorithm
+6. Program the autonomous obstacle avoidence algorithm
 
 
 ### 4. Software Requirements Specification (SRS)
