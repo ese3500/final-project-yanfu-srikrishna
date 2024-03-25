@@ -83,9 +83,9 @@ This section is to help guide your progress over the next few weeks. Feel free t
 |----------           |--------- |------------------- |
 | Week 1: 3/24 - 3/31 |  Ultrasonic sensor & servo working and plotting   |       both      |
 | Week 2: 4/1 - 4/7   | Assembling the mechanical parts of the robot functioning as intended    |     both     |
-| Week 3: 4/8 - 4/14  |  Attatch sensor to robot    |         both        |
+| Week 3: 4/8 - 4/14  |  Attach sensor to robot    |         both        |
 | Week 4: 4/15 - 4/21 |   Program manual control    |          both      |
-| Week 5: 4/22 - 4/26 |   Program automnous control and manual override    |         both        |
+| Week 5: 4/22 - 4/26 |   Program autonomous control and manual override    |         both        |
 
 ### 12. Proposal Presentation
 
