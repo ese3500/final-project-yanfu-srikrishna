@@ -49,6 +49,7 @@ By the final demonstration, we hope to have a robot which is able to move around
 
 What is your approach to the problem?
 
+In working on this project, we will use modular design and work in steps. We will first work on just using an ultrasonic sensor mounted on a servo motor and coding it such that we can sweep the position of the sensor around and map the surroundings. Once we get this part to work, we work on the robot part, getting the motors/wheels to work, as well as manually control it to make sure the mechanical parts work as intended. Once the robot moves around as intended, we will combine the two parts by mounting the ultrasonic-based obstacle detection system onto the robot, while including code to allow for automated, self-driving abilities of our robot. Then, if time permits, we can include a feature (perhaps an app), to remotely control/manually takeover the robot as a failsafe in case something goes wrong. 
 
 ### 9. Components
 
