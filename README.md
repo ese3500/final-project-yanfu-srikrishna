@@ -23,7 +23,7 @@ The problem we are trying to solve is autonomous navigation across warehouse spa
 
 ### 3. Goals
 
-These are to help guide and direct your progress. 
+These are to help guide and direct your progress.
 
 
 ### 4. Software Requirements Specification (SRS)
