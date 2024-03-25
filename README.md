@@ -24,6 +24,14 @@ The problem we are trying to solve is autonomous navigation across warehouse spa
 ### 3. Goals
 
 These are to help guide and direct your progress.
+Goal number: 
+1. Mount and connect untrasonic sensor on top of rotating servo/motor
+2. Read in values from the untrasonic sensor and be able to detect objects
+3. Map surrounding objects and store their location
+4. Create the rover base and mount motors and wheels
+5. Connect and wire up the motor with the power management 
+5. Mount the rotating ultrasonic senesor on the rover base
+6. Program the automnous obstacle avoidence algorithm
 
 
 ### 4. Software Requirements Specification (SRS)
