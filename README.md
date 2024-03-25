@@ -25,7 +25,7 @@ The problem we are trying to solve is autonomous navigation across warehouse spa
 
 These are to help guide and direct your progress.
 Goal number: 
-1. Mount and connect untrasonic sensor on top of rotating servo/motor
+1. Mount and connect ultrasonic sensor on top of rotating servo/motor
 2. Read in values from the untrasonic sensor and be able to detect objects
 3. Map surrounding objects and store their location
 4. Create the rover base and mount motors and wheels
@@ -38,9 +38,12 @@ Goal number:
 
 Formulate key software requirements here.
 
+The software component would be responsible for sensor collection, analysis, and decisions. First, we take in the ultrasonic sensor information to determine the distance to the obstance and combine it with the angle sensor to determine the poisition of obstacles. The robot will act on the information and determine how to steer and move the robot. There will also be an IoT component where we connect with a remote device/controller that allows manual override if necessary. 
+
 ### 5. Hardware Requirements Specification (HRS)
 
 Formulate key hardware requirements here.
+The untrasonic sensor will be responsible for connecting information while the servo will serve to rotate the sensor to get 360 degrees of detection. The motors on the base of the rover will serve to provide torque and move the robot. A battery will serve to provide power for the robot. We will most likely need to implement power management system depending on the requirements of the components. 
 
 ### 6. MVP Demo
 
@@ -63,7 +66,7 @@ In working on this project, we will use modular design and work in steps. We wil
 
 What major components do you need and why?
 
-We need an ultrasonic sensor to detect the presence of obstacles. We also want to have a servo on which the sensor is mounted. This will allow the sensor to be swept across different angles such that the surroundings are mapped. 
+We need an ultrasonic sensor to detect the presence of obstacles. We also want to have a servo on which the sensor is mounted. This will allow the sensor to be swept across different angles such that the surroundings are mapped. We will need a battery and power management IC(s) to control the power to the peripherals. We will also need a chasis and base for the robot to move around.  
 
 ### 10. Evaluation
 
@@ -78,11 +81,11 @@ This section is to help guide your progress over the next few weeks. Feel free t
 
 | **Week**            | **Task** | **Assigned To**    |
 |----------           |--------- |------------------- |
-| Week 1: 3/24 - 3/31 |          |                    |
-| Week 2: 4/1 - 4/7   |          |                    |
-| Week 3: 4/8 - 4/14  |          |                    |
-| Week 4: 4/15 - 4/21 |          |                    |
-| Week 5: 4/22 - 4/26 |          |                    |
+| Week 1: 3/24 - 3/31 |  Ultrasonic sensor & servo working and plotting   |       both      |
+| Week 2: 4/1 - 4/7   | Assembling the mechanical parts of the robot functioning as intended    |     both     |
+| Week 3: 4/8 - 4/14  |  Attatch sensor to robot    |         both        |
+| Week 4: 4/15 - 4/21 |   Program manual control    |          both      |
+| Week 5: 4/22 - 4/26 |   Program automnous control and manual override    |         both        |
 
 ### 12. Proposal Presentation
 
