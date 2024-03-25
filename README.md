@@ -63,7 +63,7 @@ In working on this project, we will use modular design and work in steps. We wil
 
 What major components do you need and why?
 
-We need an ultrasonic sensor to detect the presence of obstacles. 
+We need an ultrasonic sensor to detect the presence of obstacles. We also want to have a servo on which the sensor is mounted. This will allow the sensor to be swept across different angles such that the surroundings are mapped. 
 
 ### 10. Evaluation
 
