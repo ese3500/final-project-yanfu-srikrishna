@@ -38,7 +38,7 @@ Goal number:
 
 Formulate key software requirements here.
 
-The software component would be responsible for sensor collection, analysis, and decisions. First, we take in the ultrasonic sensor information to determine the distance to the obstance and combine it with the angle sensor to determine the poisition of obstacles. The robot will act on the information and determine how to steer and move the robot. There will also be an IoT component where we connect with a remote device/controller that allows manual override if necessary. 
+The software component would be responsible for sensor collection, analysis, and decisions. First, we take in the ultrasonic sensor information to determine the distance to the obstance and combine it with the servo angle to determine the poisition of obstacles. The robot will act on the information and determine how to steer and move the robot. There will also be an IoT component where we connect with a remote device/controller that allows manual override if necessary. 
 
 ### 5. Hardware Requirements Specification (HRS)
 
