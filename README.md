@@ -1,7 +1,7 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/2TmiRqwI)
 # final-project-skeleton
 
-    * Team Name: 
+    * Team Name: Deep's Dynamo
     * Team Members: Yanfu Ou and Srikrishna Chakravarthi
     * Github Repository URL: https://github.com/ese3500/final-project-yanfu-srikrishna
     * Github Pages Website URL: [for final submission]
