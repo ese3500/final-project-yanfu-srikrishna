@@ -1,0 +1,169 @@
+/*
+ * GccApplication1.c
+ *
+ * Created: 4/19/2024 11:34:57 AM
+ * Author : yanfuou2
+ */ 
+
+#define F_CPU 16000000UL
+#define BAUD_RATE 9600
+#define BAUD_PRESCALER (((F_CPU / (BAUD_RATE * 16UL))) - 1)
+#include "inc/uart.h"
+
+#include <stdlib.h>
+#include <stdio.h>
+#include <stdbool.h>
+#include <avr/io.h>
+#include <util/delay.h>
+#include <avr/interrupt.h>
+volatile int trigger = 1; 
+volatile int dist = 0;
+char String[25];
+
+void initialize() {
+	UART_init(BAUD_PRESCALER);
+	//cli();
+	
+	sprintf(String, "test\n");
+	UART_putstring(String);
+	
+	DDRD |= (1<<DDD6); //output pin
+	//DDRB &= ~(1<<PORTB1); //output pin
+	DDRB &= ~(1<<PORTB0); //INPUT pin
+	
+	DDRD |= (1<<DDD5); //TC 0 --> PD5
+	DDRD |= (1<<DDD3); //TC 2 --> PD3
+	DDRD |= (1<<DDD2); //TC 3 --> PD2
+	DDRD |= (1<<DDD0); //TC 3 --> PD2
+	DDRD |= (1<<DDD1); //TC 3 --> PD2
+	DDRB |= (1<<PORTB2); //TC1 --> PB2
+
+
+	
+
+	//-------------TIMER 0--------------PD5(50Hz for Motor)
+	
+	//prescale buzzer control Phase Correct PWM mode by 64
+	TCCR0B |= (1<<CS02);
+	TCCR0B &= ~(1<<CS01);
+	TCCR0B |= (1<<CS00);
+	
+	//SETS OPERATION MODE TO BE PHASE CORRECT MODE
+	TCCR0A |= (1<<WGM00);
+	TCCR0A &= ~(1<<WGM01);
+	TCCR0B |= (1<<WGM02);
+	
+	//SETS OCCR0A AND OCCR0B
+	TCCR0A |= (1 << COM0A1) | (1 << COM0B1);
+	TCCR0A &= ~((1 << COM0A0) | (1 << COM0B0));
+	//TIFR0 |= (1<<OCF0A); 
+	OCR0A = 156;
+	OCR0B = OCR0A * 90.0/100;
+	
+	//-------------TIMER 2 -------------------PD3(20ns for Ultrasnic sensorTrigger)
+	//prescaled by 8
+	//CAUTION: DIFFERENT FROM OTHER TIMERS
+	TCCR2B &= ~(1<<CS22);
+	TCCR2B |= (1<<CS21);
+	TCCR2B &= ~(1<<CS20);
+		
+	//SETS OPERATION MODE TO BE PHASE CORRECT MODE
+	TCCR2A |= (1<<WGM20);
+	TCCR2A &= ~(1<<WGM21);
+	TCCR2B |= (1<<WGM22);
+	
+	//SETS OCCR0A AND OCCR0B
+	TCCR2A |= (1 << COM2A1) | (1 << COM2B1);
+	TCCR2A &= ~((1 << COM2A0) | (1 << COM2B0));
+	//TIFR0 |= (1<<OCF0A); 
+	OCR2A = 20; //was 20
+	OCR2B = OCR2A * 50/100;
+	
+	
+	
+	//--------------------TIMER 1---------------PB2(Ultrasonic sensor echo pin)
+	TIMSK1 |= (1<<ICIE1);
+	TCCR1B |= (1<<CS11);
+	TCCR1B |= (1<<ICES1); //sets risin edge
+	
+	//prescale input captuare clock by 1024
+	TCCR1B |= (1<<CS12); 
+	TCCR1B &= ~(1<<CS11);
+	TCCR1B |= (1<<CS10); 
+	
+	/*
+	TCCR1A |= (1<<WGM10); 
+	TCCR1A |= (1<<WGM11);
+	TCCR1B &= ~(1<<WGM12); 
+	TCCR1B |= (1<<WGM13); 
+	
+	TCCR1A |= (1 << COM1A1) | (1 << COM1B1);
+	TCCR1A &= ~((1 << COM1A0) | (1 << COM1B0));
+	
+	OCR1A = 156; //was 20
+	OCR1B = OCR1A * 50/100;
+	*/
+	
+	/**
+
+	//-----------------Timer 4---------------------PD2
+	//prescale input captuare clock by 1024
+	TCCR3B |= (1<<CS32); 
+	TCCR3B &= ~(1<<CS31);
+	TCCR3B |= (1<<CS30); 
+	
+	TCCR3A |= (1<<WGM30); 
+	TCCR3A |= (1<<WGM31);
+	TCCR3B &= ~(1<<WGM32); 
+	TCCR3B |= (1<<WGM33); 
+	
+	TCCR3A |= (1 << COM3A1) | (1 << COM3B1);
+	TCCR3A &= ~((1 << COM3A0) | (1 << COM3B0));
+	
+	OCR3A = 156; //was 20
+	OCR3B = OCR3A * 50/100;
+	
+	*/
+	//sei();
+}
+
+ISR(TIMER1_CAPT_vect)
+{
+	sprintf(String, "test");
+	UART_putstring(String);
+	if(trigger) {
+		TCCR1B &= ~(1<<ICES1); //sets falling edge
+		TCNT1 = 0;  
+		trigger = 0; 
+	} else {
+		TCCR1B |= (1<<ICES1); //sets risin edge
+		dist = TCNT1/2;
+		trigger = 1; 
+		sprintf(String, "test");
+		UART_putstring(String);
+		
+	}
+	
+}
+
+int main(void)
+{
+    /* Replace with your application code */
+	initialize(); 
+    while (1) 
+    {
+		sprintf(String, "test\n");
+		UART_putstring(String);
+		/**
+		for(int i = 1; i < 12; i++) {
+			OCR0B = OCR0A*(100 - i)/100;
+			_delay_ms(2000); 
+		}
+		
+		for(int i = 1; i < 12; i++) {
+			OCR0B = OCR0A*(88 + i)/100;
+			_delay_ms(2000); 
+		}
+		*/
+    }
+}
