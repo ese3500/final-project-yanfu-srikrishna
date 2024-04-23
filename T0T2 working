@@ -17,7 +17,7 @@ void initialize() {
 	DDRB &= ~(1<<PORTB2); //INPUT pin
 	DDRB |= (1<<DDRB1);
 
-	//-------------TIMER 1--------------PD5(50Hz for Motor)
+	//-------------TIMER 0--------------PD5(50Hz for Motor)
 	
 	//prescale buzzer control Phase Correct PWM mode by 64
 	TCCR0B |= (1<<CS02);
@@ -53,7 +53,7 @@ void initialize() {
 	TCCR2A &= ~((1 << COM2A0) | (1 << COM2B0));
 	//TIFR0 |= (1<<OCF0A); 
 	OCR2A = 20; //was 20
-	OCR2B = OCR2A * 50.0/100;
+	OCR2B = OCR2A * 50/100;
 	
 }
 
