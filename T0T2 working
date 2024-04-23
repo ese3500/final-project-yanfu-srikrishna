@@ -1,0 +1,79 @@
+/*
+ * GccApplication1.c
+ *
+ * Created: 4/19/2024 11:34:57 AM
+ * Author : yanfuou2
+ */ 
+
+#include <avr/io.h>
+#include <util/delay.h>
+
+void initialize() {
+	DDRD |= (1<<DDD6); //output pin
+	DDRD |= (1<<DDD5); //output pin
+	DDRD |= (1<<DDD3); //output pin
+	DDRB |= (1<<PORTB1); //output pin
+	DDRB &= ~(1<<PORTB0); //INPUT pin
+	DDRB &= ~(1<<PORTB2); //INPUT pin
+	DDRB |= (1<<DDRB1);
+
+	//-------------TIMER 1--------------PD5(50Hz for Motor)
+	
+	//prescale buzzer control Phase Correct PWM mode by 64
+	TCCR0B |= (1<<CS02);
+	TCCR0B &= ~(1<<CS01);
+	TCCR0B |= (1<<CS00);
+	
+	//SETS OPERATION MODE TO BE PHASE CORRECT MODE
+	TCCR0A |= (1<<WGM00);
+	TCCR0A &= ~(1<<WGM01);
+	TCCR0B |= (1<<WGM02);
+	
+	//SETS OCCR0A AND OCCR0B
+	TCCR0A |= (1 << COM0A1) | (1 << COM0B1);
+	TCCR0A &= ~((1 << COM0A0) | (1 << COM0B0));
+	//TIFR0 |= (1<<OCF0A); 
+	OCR0A = 156;
+	OCR0B = OCR0A * 90.0/100;
+	
+	//-------------TIMER 2 -------------------PD3(20ns for Trigger)
+	//prescaled by 8
+	//CAUTION: DIFFERENT FROM OTHER TIMERS
+	TCCR2B &= ~(1<<CS22);
+	TCCR2B |= (1<<CS21);
+	TCCR2B &= ~(1<<CS20);
+		
+	//SETS OPERATION MODE TO BE PHASE CORRECT MODE
+	TCCR2A |= (1<<WGM20);
+	TCCR2A &= ~(1<<WGM21);
+	TCCR2B |= (1<<WGM22);
+	
+	//SETS OCCR0A AND OCCR0B
+	TCCR2A |= (1 << COM2A1) | (1 << COM2B1);
+	TCCR2A &= ~((1 << COM2A0) | (1 << COM2B0));
+	//TIFR0 |= (1<<OCF0A); 
+	OCR2A = 20; //was 20
+	OCR2B = OCR2A * 50.0/100;
+	
+}
+
+int main(void)
+{
+    /* Replace with your application code */
+	initialize(); 
+    while (1) 
+    {
+		
+		/**
+		for(int i = 1; i < 12; i++) {
+			OCR0B = OCR0A*(100 - i)/100;
+			_delay_ms(2000); 
+		}
+		
+		for(int i = 1; i < 12; i++) {
+			OCR0B = OCR0A*(88 + i)/100;
+			_delay_ms(2000); 
+		}
+		*/
+    }
+}
