@@ -55,10 +55,11 @@ void initialize() {
 	TCCR0A |= (1 << COM0A1) | (1 << COM0B1);
 	TCCR0A &= ~((1 << COM0A0) | (1 << COM0B0));
 	//TIFR0 |= (1<<OCF0A); 
-	OCR0A = 157;
+	OCR0A = 156;
 	OCR0B = OCR0A * 90.0/100;
 	
 	//-------------------------timer 3 for ultrasound-----------
+	/*
 		//prescale buzzer control Phase Correct PWM mode by 64
 	TCCR2B &= ~(1<<CS22);
 	TCCR2B |= (1<<CS21);
@@ -75,7 +76,9 @@ void initialize() {
 	//TIFR0 |= (1<<OCF0A); 
 	OCR2A = 20;
 	OCR2B = OCR2A * 50.0/100;
+	*/
 	//-----------------timer1 for interrupt--------------
+	/*
 	TIMSK1 |= (1<<ICIE1);
 	TCCR1B |= (1<<CS11);
 	TCCR1B |= (1<<ICES1); //sets risin edge
@@ -85,9 +88,11 @@ void initialize() {
 	TCCR1B &= ~(1<<CS01);
 	TCCR1B |= (1<<CS00); 
 	state = 0; 
+	*/
 	sei();
 }
 
+/*
 ISR(TIMER1_CAPT_vect)
 {
 	if(trigger) {
@@ -104,22 +109,17 @@ ISR(TIMER1_CAPT_vect)
 	}
 	
 }
+*/
 int main(void)
 {
     /* Replace with your application code */
 	initialize(); 
     while (1) 
     {
-		
-		
-		for(int i = 1; i < 6; i++) {
+		for(int i = 1; i < 10; i++) {
 			OCR0B = OCR0A*(100 - i)/100;
 			_delay_ms(1000); 
 		}
-// 		for(int i = 0; i < 12; i++) {
-// 			OCR0B = OCR0A*(88 + i)/100;
-// 			_delay_ms(2000);
-// 		}
     }
 }
 
