@@ -1,5 +1,4 @@
 #define BLYNK_PRINT Serial
-
 #define BLYNK_TEMPLATE_ID "TMPL21481KBvI"
 #define BLYNK_TEMPLATE_NAME "MVP"
 #define BLYNK_AUTH_TOKEN "iskT88R6sXCbKc9y4XiFdzmZPtRej4BU"
@@ -10,6 +9,12 @@ const char* password = "12345678";
 #include <WiFi.h>
 #include <WiFiClient.h>
 #include <BlynkSimpleEsp32.h>
+#include <HardwareSerial.h>
+
+HardwareSerial MySerial(2); // define a Serial for UART1
+const int MySerialRX = 16;
+const int MySerialTX = 17;
+
 #define LEFT_A 14
 #define LEFT_B 15
 #define RIGHT_A 12
@@ -29,6 +34,8 @@ int blynkValueV3;
 
 void setup() {
   Serial.begin(9600);
+  MySerial.begin(9600, SERIAL_8N1, MySerialRX, MySerialTX);
+
   Blynk.begin(auth, ssid, password);
   pinMode(LEFT_A, OUTPUT);
   pinMode(LEFT_B, OUTPUT);
@@ -85,7 +92,31 @@ BLYNK_WRITE(V3)
 }
 void loop()
 {
+  // here we could use our MySerial normally
+  uint8_t byteFromSerial;
+  char byteChar;
+  while (MySerial.available() > 0) {
+  byteFromSerial = MySerial.read();
+  byteChar = (char)byteFromSerial;
+  Serial.println(byteChar);
+  if (byteChar == 'f') {
+    forward();
+  }
+  if (byteChar == 'r') {
+    backward();
+  }
+  if (byteChar == 'l') {
+    turnLeft();
+  }
+  if (byteChar == 'r') {
+    turnRight();
+  }
+  if (byteChar == 's') {
+    stop();
+  }
+  }
   Blynk.run();
+  /**
   Serial.print("V0 value: ");
   Serial.println(blynkValueV0);
   Serial.print("V1 value: ");
@@ -94,7 +125,7 @@ void loop()
   Serial.println(blynkValueV2);
   Serial.print("V3 value: ");
   Serial.println(blynkValueV3);
-  
+  */
 }
 /**
 void loop() {
