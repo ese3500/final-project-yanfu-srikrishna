@@ -173,15 +173,15 @@ void detection()
 		writtenAngle = 1; 
 		
 		//DEBUG
-		sprintf(String, "initAngle %d \n", initAngle);
-		UART_putstring(String);
+		//sprintf(String, "initAngle %d \n", initAngle);
+		//UART_putstring(String);
 	}
 	if(distance >= 12 && writtenAngle == 1) {
 		finalAngle = angle;
 		writtenAngle = 0; 
 		//DEBUG
-		sprintf(String, "finalAngle %d \n", finalAngle);
-		UART_putstring(String);
+		//sprintf(String, "finalAngle %d \n", finalAngle);
+		//UART_putstring(String);
 	}
 }
 
@@ -192,7 +192,9 @@ int main(void)
 	initialize(); 
     while (1) 
     {
-		
+		sprintf(String, "f\n");
+		UART_putstring(String);
+		_delay_ms(200);
 		/*
 		sprintf(String, "f\n");
 		UART_putstring(String);
