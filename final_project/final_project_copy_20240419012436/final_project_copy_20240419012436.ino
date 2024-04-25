@@ -156,28 +156,28 @@ void stop(){
   digitalWrite(RIGHT_B, LOW);
 }
 
-void forward(){
+void backward(){
   digitalWrite(LEFT_A, HIGH);
   digitalWrite(LEFT_B, LOW);
   digitalWrite(RIGHT_A, HIGH);
   digitalWrite(RIGHT_B, LOW);
 }
 
-void backward(){
+void forward(){
   digitalWrite(LEFT_A, LOW);
   digitalWrite(LEFT_B, HIGH);
   digitalWrite(RIGHT_A, LOW);
   digitalWrite(RIGHT_B, HIGH);
 }
 
-void turnRight(){
+void turnLeft(){
   digitalWrite(LEFT_A, HIGH);
   digitalWrite(LEFT_B, LOW);
   digitalWrite(RIGHT_A, LOW);
   digitalWrite(RIGHT_B, HIGH);
 }
 
-void turnLeft(){
+void turnRight(){
   digitalWrite(LEFT_A, LOW);
   digitalWrite(LEFT_B, HIGH);
   digitalWrite(RIGHT_A, HIGH);
