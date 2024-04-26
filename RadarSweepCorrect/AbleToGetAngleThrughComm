@@ -19,6 +19,7 @@ volatile int r = LCD_HEIGHT/4;
 volatile int oldx;
 volatile int oldy;
 volatile int angle = 0; 
+char angleArr[5]; 
 
 char intStringBuffer[10]; //buffer to hold the converted number
 void Initialize()
@@ -31,16 +32,13 @@ void Initialize()
 	LCD_setScreen(BLACK);
 	sei();
 	
-	//LCD_drawLine(xcenter,ycenter,20,10,RED);
-	//LCD_drawLine(xcenter,ycenter,80,40,WHITE);
-	//LCD_drawLine(xcenter,ycenter,90,70,WHITE);
-	//LCD_drawLine(xcenter,ycenter,20,120,WHITE);
 
 }
+/*
 void sweep() {  
 	for(int i = 0; i < 180; i++) {
-		itoa(i, intStringBuffer, 10); 		
-		LCD_drawString(10,10,intStringBuffer,WHITE,BLACK);
+		//itoa(i, intStringBuffer, 10); 		
+		//LCD_drawString(10,10,intStringBuffer,WHITE,BLACK);
 		oldx = x;
 		oldy = y; 
 		x = xcenter + r*cos((i-90)* 3.1415926535 /180); 
@@ -50,8 +48,8 @@ void sweep() {
 		_delay_ms(50); 
 	}
 	for(int i = 180; i > 0; i--) {
-		itoa(i, intStringBuffer, 10); 		
-		LCD_drawString(10,10,intStringBuffer,WHITE,BLACK);
+		//itoa(i, intStringBuffer, 10); 		
+		//LCD_drawString(10,10,intStringBuffer,WHITE,BLACK);
 		oldx = x;
 		oldy = y; 
 		x = xcenter + r*cos((i-90)* 3.1415926535 /180); 
@@ -60,41 +58,32 @@ void sweep() {
 		LCD_drawLine(xcenter,ycenter,x,y,GREEN);
 		_delay_ms(50); 
 	}
-	/**
-    while(y>=0) {
-		LCD_drawLine(xcenter,ycenter,oldx,oldy,BLACK);
-		LCD_drawLine(xcenter,ycenter,x,y,GREEN);
-		oldx = x;
-		oldy = y;
-        y--;
-		sprintf(String, "test\n");
-		UART_putstring(String);
 
-    }*/
-/**    
-    y = 0; x = 1;
-    while(x<=127) {
-		LCD_drawLine(xcenter,ycenter,oldx,oldy,BLACK);
-        LCD_drawLine(xcenter,ycenter,x,y,GREEN);
-		oldx = x;
-		oldy = y;
-        x++;
-
-    }
-    x = 127; y = 1;
-    while(y<63) {
-	   LCD_drawLine(xcenter,ycenter,oldx,oldy,BLACK);
-       LCD_drawLine(xcenter,ycenter,x,y,GREEN);
-	   oldx = x;
-	   oldy = y;
-       y++;
-
-    }
-	*/
 }
-
+*/
 int main(void)
 {
 	Initialize();
-	sweep();
+	//sweep();
+	 while (1)
+	 {
+		 char received = UART_receive();
+		 //UART_send(received);
+		 if(received == 'a') {
+			 for(int i = 0; i < 3; i++) {
+				 angleArr[i] = UART_receive();
+			 }
+			 //UART_putstring(angleArr);
+			 //UART_putstring("\n");
+			 		
+			 angle = atoi(angleArr); 
+			 sprintf(String, "angle %d\n", angle);
+			 UART_putstring(String);
+			 
+			 LCD_drawString(10,10,angleArr,WHITE,BLACK);
+		 
+		 }
+		 
+		 
+	 }
 }
