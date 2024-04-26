@@ -1,0 +1,71 @@
+#define F_CPU 16000000UL
+#define BAUD_RATE 9600
+#define BAUD_PRESCALER (((F_CPU / (BAUD_RATE * 16UL))) - 1)
+#include "inc/uart.h"
+
+#include <avr/io.h>
+#include "ST7735.h"
+#include "LCD_GFX.h"
+#include <stdlib.h>
+#include <stdio.h>
+#include <util/delay.h>
+#include <avr/interrupt.h>
+#include <stdbool.h>
+char String[25];
+volatile int x = 0, y = 0;
+volatile int xcenter = LCD_WIDTH/2, ycenter = LCD_HEIGHT;
+volatile int radius = LCD_HEIGHT/2; 
+volatile int oldx;
+volatile int oldy;
+void Initialize()
+{
+	cli();
+	UART_init(BAUD_PRESCALER);
+	//Initialize output pins
+	lcd_init();//initialize LCD
+	//clear the screen
+	LCD_setScreen(BLACK);
+	
+	sei();
+
+}
+void sweep() {  
+    while(y>=0) {
+		LCD_drawLine(xcenter,ycenter,oldx,oldy,BLACK);
+		LCD_drawLine(xcenter,ycenter,x,y,GREEN);
+		oldx = x;
+		oldy = y;
+        y--;
+		sprintf(String, "test\n");
+		UART_putstring(String);
+
+    }
+/**    
+    y = 0; x = 1;
+    while(x<=127) {
+		LCD_drawLine(xcenter,ycenter,oldx,oldy,BLACK);
+        LCD_drawLine(xcenter,ycenter,x,y,GREEN);
+		oldx = x;
+		oldy = y;
+        x++;
+
+    }
+    x = 127; y = 1;
+    while(y<63) {
+	   LCD_drawLine(xcenter,ycenter,oldx,oldy,BLACK);
+       LCD_drawLine(xcenter,ycenter,x,y,GREEN);
+	   oldx = x;
+	   oldy = y;
+       y++;
+
+    }
+	*/
+}
+
+int main(void)
+{
+	Initialize();
+	while(1){
+	    sweep();
+	}
+}
