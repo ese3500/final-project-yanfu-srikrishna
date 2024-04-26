@@ -1,0 +1,29 @@
+
+	uint8_t minX = min(x0, x1);
+	uint8_t maxX = max(x0, x1);
+	short deltaX = x1 - x0;
+	uint8_t absDeltaX = maxX - minX;
+
+	uint8_t minY = min(y0, y1);
+	uint8_t maxY = max(y0, y1);
+	short deltaY = y1 - y0;
+	uint8_t absDeltaY = maxY - minY;
+
+	if (deltaX == 0 || deltaY == 0) {
+		LCD_drawBlock(x0, y0, x1, y1, c);
+		return;
+	}
+
+	if (absDeltaX >= absDeltaY) {
+		// |slope| <= 1
+		for (uint8_t x = minX; x <= maxX; x++) {
+			uint8_t y = (deltaY * (x - minX)) / (absDeltaX) + y0;
+			LCD_drawPixel(x, y, c);
+		}
+	} else {
+		// |slope| > 1
+		for (uint8_t y = minY; y <= maxY; y++) {
+			uint8_t x = (deltaX * (y - minY)) / (absDeltaY) + x0;
+			LCD_drawPixel(x, y, c);
+		}
+	}
