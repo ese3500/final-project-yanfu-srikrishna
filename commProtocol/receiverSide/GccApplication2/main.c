@@ -18,7 +18,7 @@
 #include <avr/io.h>
 #include <stdbool.h>
 char String[25];
-
+char angle[5]; 
 
 
 void Initialize() {
@@ -39,7 +39,15 @@ int main(void)
     while (1) 
     {
 		char received = UART_receive(); 
-		UART_send(received);
+		//UART_send(received);
+		if(received == 'a') {
+			for(int i = 0; i < 3; i++) {
+				angle[i] = UART_receive(); 
+			}
+			UART_putstring(angle); 
+			UART_putstring("\n"); 
+		}
+			
     }
+	
 }
-
