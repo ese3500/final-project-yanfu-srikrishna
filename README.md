@@ -126,6 +126,8 @@ Overall, we feel that our project was a success since we were able to meet the g
 ## References
 
 Fill in your references here as you work on your proposal and final submission. Describe any libraries used here.
+1) We used the LCD library from Lab 4:Pong to draw the radar on the LCD screen.  
+2) We used the Blynk library to enable manual control of the motors via the Blynk app using the ESP32.
 
 ## Github Repo Submission Resources
 
