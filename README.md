@@ -108,6 +108,8 @@ If you’ve never made a Github pages website before, you can follow this webpag
 
 What were your results? Namely, what was the final solution/design to your problem?
 
+Our final project, Deep's Dynamo, involved an autonomous vehicle that has the ability to avoid obstacles placed in its path. Additionally, the vehicle can be manually overriden/controlled wirelessly through the Blynk app if needed. An ultrasonic sensor mounted on a servo motor was used for obstacle detection, with periodic scans occurring to keep the system updated. An LCD screen with a "radar" displaying the angle of the servo was also included. 
+
 #### 3.1 Software Requirements Specification (SRS) Results
 
 Based on your quantified system performance, comment on how you achieved or fell short of your expected software requirements. You should be quantifying this, using measurement tools to collect data.
