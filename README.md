@@ -122,6 +122,7 @@ Based on your quantified system performance, comment on how you achieved or fell
 
 Reflect on your project. Some questions to consider: What did you learn from it? What went well? What accomplishments are you proud of? What did you learn/gain from this experience? Did you have to change your approach? What could have been done differently? Did you encounter obstacles that you didn’t anticipate? What could be a next step for this project?
 
+Overall, we feel that our project was a success since we were able to meet the general goal of making an autonomous vehicle that avoids obstacles by monitoring its surroundings. We are proud of what we were able to accomplish in the short time frame and felt that we approached the project design and execution processes in a rational manner. The project was able to be completed using only parts in Detkin, and we made a conscious decision to do so to avoid any potential challenges with delays in part orders. This does not mean that we did not face any challenges during the development process however. Around an hour before our time slot on demo day, the halbot platform we used to complete the project began to emit smoke, which forced us to quickly adapt and migrate to a new halbot platform. Luckily, upon rewiring, the project still worked as intended. 
 ## References
 
 Fill in your references here as you work on your proposal and final submission. Describe any libraries used here.
