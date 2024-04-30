@@ -98,7 +98,7 @@ If you’ve never made a Github pages website before, you can follow this webpag
 
 ### 1. Video
 
-[[Insert final project video here]](https://www.youtube.com/watch?v=1S5jGHQ7WVk) 
+[[Final Project Video]](https://www.youtube.com/watch?v=1S5jGHQ7WVk) 
 
 ### 2. Images
 
