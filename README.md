@@ -131,6 +131,8 @@ SRS 04 - The UART serial communication protocol shall be used to send commands b
 
 SRS 05 - Utilize Timer 1's interrupt to detect the reflected signal via the echo pin and translate the echo signal's time into a distance. 
 
+SRS 06 - There shall be a wireless IoT based control mechanism allowing for manual control of the vehicle through the Blynk app.
+
 
 #### 3.2 Hardware Requirements Specification (HRS) Results
 
