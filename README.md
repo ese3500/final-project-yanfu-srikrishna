@@ -164,7 +164,11 @@ We were able to partially implement this, in that our servo motor only rotates 1
 
 HRS 04 - We shall use an ESP32 for interfacing with the Blynk app, thereby enabling wireless control of the vehicle via phone.
 
+We were able to get this done successfully. We utilized an ESP32 and UART protocol for wireless communication via the Blynk app, thus allowing for control of the vehicle via the app. 
+
 HRS 05 - We shall utilize a 128x160 LCD screen to display a radar indicating the ultrasonic sensor's sweep. The display will interface with the corresponding ATMEGA328PB through the SPI protocol.
+
+We were able to successfully complete this. A second ATMEGA328PB was necessary to utilize printing to the data visualizer in addition to using the LCD screen. 
 
 ### 4. Conclusion
 
