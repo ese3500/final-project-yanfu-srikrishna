@@ -98,11 +98,14 @@ If you’ve never made a Github pages website before, you can follow this webpag
 
 ### 1. Video
 
-[Insert final project video here]
+[[Insert final project video here]](https://www.youtube.com/watch?v=1S5jGHQ7WVk) 
 
 ### 2. Images
 
-[Insert final project images here]
+![20240429_225123](https://github.com/ese3500/final-project-yanfu-srikrishna/assets/122131796/b0c941b9-4f08-4bc5-b70d-1fb72213ef54)
+
+![20240429_233456](https://github.com/ese3500/final-project-yanfu-srikrishna/assets/122131796/acee5d81-8008-4f9b-aa3b-c5420ece4038)
+![20240429_225123](https://github.com/ese3500/final-project-yanfu-srikrishna/assets/122131796/15d9f475-2d57-4812-9d74-efee579c65e3)
 
 ### 3. Results
 
