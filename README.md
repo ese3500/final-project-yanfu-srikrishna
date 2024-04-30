@@ -124,7 +124,7 @@ SRS 03 - Timer 2, an 8-bit timer, shall be used to control the trigger pin of th
 
 SRS 04 - The UART serial communication protocol shall be used to send commands between the two ATMEGA328PBs as well as between the one ATMEGA328PB and the ESP32. 
 
-SRS 05 - 
+SRS 05 - Utilize Timer 1's interrupt to detect the reflected signal via the echo pin and translate the echo signal's time into a distance. 
 
 
 #### 3.2 Hardware Requirements Specification (HRS) Results
