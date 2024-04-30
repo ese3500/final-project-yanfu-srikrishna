@@ -139,7 +139,7 @@ HRS 03 - The ultrasonic sensor shall be mounted on top of a servo motor. The ser
 
 HRS 04 - We shall use an ESP32 for interfacing with the Blynk app, thereby enabling wireless control of the vehicle via phone.
 
-HRS 05 - 
+HRS 05 - We shall utilize a 128x160 LCD screen to display a radar indicating the ultrasonic sensor's sweep. The display will interface with the corresponding ATMEGA328PB through the SPI protocol.
 
 ### 4. Conclusion
 
