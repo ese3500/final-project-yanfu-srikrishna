@@ -127,7 +127,11 @@ This is exactly what we implemented! We set up the registers/pins properly to en
 
 SRS 02 - Timer 1, a 16-bit timer, shall be used to control the echo pin of the ultrasonic sensor in PWM mode.
 
+This is exactly what we implemented! We set up the registers/pins properly to enable Timer 1, and connected the servo motor's PWM pin to PB0 (the pin associated with Timer 1). Note that for the PWM mode, we chose phase-correct PWM since the signals are symmetric.
+
 SRS 03 - Timer 2, an 8-bit timer, shall be used to control the trigger pin of the ultrasonic sensor in PWM mode. 
+
+This is exactly what we implemented! We set up the registers/pins properly to enable Timer 2, and connected the servo motor's PWM pin to PD3 (the pin associated with Timer 2). Note that for the PWM mode, we chose phase-correct PWM since the signals are symmetric.
 
 SRS 04 - The UART serial communication protocol shall be used to send commands between the two ATMEGA328PBs as well as between the one ATMEGA328PB and the ESP32. 
 
@@ -142,7 +146,9 @@ Based on your quantified system performance, comment on how you achieved or fell
 
 HRS 01 - Our system shall use two ATMEGA328PBs - One to control the LCD screen and the other to control the movement of the autonomous vehicle itself. 
 
-HRS 02 - An ultrasonic sensor shall be used for obstacle detection. It shall detect obstacles at a distance 12cm or closer from the front of the vehicle. 
+HRS 02 - An ultrasonic sensor shall be used for obstacle detection. It shall detect obstacles at a distance 12 cm or closer from the front of the vehicle. 
+
+This worked. Based on our repeated testing and measurements, we noticed that whenever an obstacle was indeed 12 cm or closer, the vehicle would properly turn and avoid the obstacle. This was successfully implemented due to proper mounting of the ultrasonic sensor on top of the servo motor, in addition to setting up the appropriate formula for calculating distance as dictated by the datasheet of the ultrasonic sensor. 
 
 HRS 03 - The ultrasonic sensor shall be mounted on top of a servo motor. The servo motor should rotate 360 degrees to help enable scanning for obstacles around the vehicle by the ultrasonic sensor.
 
