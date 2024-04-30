@@ -110,13 +110,27 @@ What were your results? Namely, what was the final solution/design to your probl
 
 Our final project, Deep's Dynamo, involved an autonomous vehicle that has the ability to avoid obstacles placed in its path. Additionally, the vehicle can be manually overriden/controlled wirelessly through the Blynk app if needed. An ultrasonic sensor mounted on a servo motor was used for obstacle detection, with periodic scans occurring to keep the system updated. An LCD screen with a "radar" displaying the angle of the servo was also included. 
 
+### NOTE: For the Software and Hardware Requirements, we lost points during the proposal stage (due to not having a detailed enough list). For this reason, we came up with a new list of hardware and software requirements before starting on our project. This is the list that I am including/commenting on below. 
+
 #### 3.1 Software Requirements Specification (SRS) Results
 
 Based on your quantified system performance, comment on how you achieved or fell short of your expected software requirements. You should be quantifying this, using measurement tools to collect data.
 
+SRS 01 - 
+SRS 02 - 
+SRS 03 - 
+SRS 04 - 
+SRS 05 - 
+
 #### 3.2 Hardware Requirements Specification (HRS) Results
 
 Based on your quantified system performance, comment on how you achieved or fell short of your expected hardware requirements. You should be quantifying this, using measurement tools to collect data.
+
+HRS 01 - Our system shall use two ATMEGA328PBs - One to control the LCD screen and the other to control the movement of the autonomous vehicle itself. 
+HRS 02 - An ultrasonic sensor shall be used for obstacle detection. It shall detect obstacles at a distance 12cm or closer from the front of the vehicle. 
+HRS 03 - The ultrasonic sensor shall be mounted on top of a servo motor. The servo motor shall rotate 360 degrees to help enable scanning for obstacles around the vehicle by the ultrasonic sensor.
+HRS 04 - 
+HRS 05 - 
 
 ### 4. Conclusion
 
