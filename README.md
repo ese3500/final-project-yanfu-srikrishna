@@ -145,6 +145,7 @@ SRS 06 - There shall be a wireless IoT based control mechanism allowing for manu
 Based on your quantified system performance, comment on how you achieved or fell short of your expected hardware requirements. You should be quantifying this, using measurement tools to collect data.
 
 HRS 01 - Our system shall use two ATMEGA328PBs - One to control the LCD screen and the other to control the movement of the autonomous vehicle itself. 
+This is exactly what we implemented. By dividing the two tasks into two atmegas, we achieved modularity and allowed much easier testing and debuging. 
 
 HRS 02 - An ultrasonic sensor shall be used for obstacle detection. It shall detect obstacles at a distance 12 cm or closer from the front of the vehicle. 
 
