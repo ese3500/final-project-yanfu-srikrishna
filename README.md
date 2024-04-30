@@ -26,36 +26,36 @@ The problem we are trying to solve is autonomous navigation across warehouse spa
 These are to help guide and direct your progress.
 Goal number: 
 1. Mount and connect ultrasonic sensor on top of rotating servo/motor
-2. Read in values from the untrasonic sensor and be able to detect objects
+2. Read in values from the ultrasonic sensor and be able to detect objects
 3. Map surrounding objects and store their location
 4. Create the rover base and mount motors and wheels
 5. Connect and wire up the motor with the power management system 
-5. Mount the rotating ultrasonic senesor on the rover base
-6. Program the autonomous obstacle avoidence algorithm
+5. Mount the rotating ultrasonic sensor on the rover base
+6. Program the autonomous obstacle avoidance algorithm
 
 
 ### 4. Software Requirements Specification (SRS)
 
 Formulate key software requirements here.
 
-The software component would be responsible for sensor collection, analysis, and decisions. First, we take in the ultrasonic sensor information to determine the distance to the obstance and combine it with the servo angle to determine the poisition of obstacles. The robot will act on the information and determine how to steer and move the robot. There will also be an IoT component where we connect with a remote device/controller that allows manual override if necessary. 
+The software component would be responsible for sensor collection, analysis, and decisions. First, we take in the ultrasonic sensor information to determine the distance to the obstacle and combine it with the servo angle to determine the position of obstacles. The robot will act on the information and determine how to steer and move the robot. There will also be an IoT component where we connect with a remote device/controller that allows manual override if necessary. 
 
 ### 5. Hardware Requirements Specification (HRS)
 
 Formulate key hardware requirements here.
-The untrasonic sensor will be responsible for connecting information while the servo will serve to rotate the sensor to get 360 degrees of detection. The motors on the base of the rover will serve to provide torque and move the robot. A battery will serve to provide power for the robot. We will most likely need to implement power management system depending on the requirements of the components. 
+The ultrasonic sensor will be responsible for connecting information while the servo will serve to rotate the sensor to get 360 degrees of detection. The motors on the base of the rover will serve to provide torque and move the robot. A battery will serve to provide power for the robot. We will most likely need to implement power management system depending on the requirements of the components. 
 
 ### 6. MVP Demo
 
 What do you expect to accomplish by the first milestone?
 
-We hope to get a ultrasonic sensor-based radar system working which can map out the surroundings/detect the presence of obstacles.
+We hope to get an ultrasonic sensor-based radar system working which can map out the surroundings/detect the presence of obstacles.
 
 ### 7. Final Demo
 
 What do you expect to achieve by the final demonstration or after milestone 1?
 
-By the final demonstration, we hope to have a robot which is able to move around on it's own and avoid obstacles which are placed in its path. 
+By the final demonstration, we hope to have a robot which is able to move around on its own and avoid obstacles which are placed in its path. 
 ### 8. Methodology
 
 What is your approach to the problem?
@@ -135,9 +135,15 @@ This is exactly what we implemented! We set up the registers/pins properly to en
 
 SRS 04 - The UART serial communication protocol shall be used to send commands between the two ATMEGA328PBs as well as between the one ATMEGA328PB and the ESP32. 
 
+This is exactly what was done. We utilized the fact that there are two UART ports for each ATMEGA328PB (UART0 and UART1) to make this possible. Thus, the main ATMEGA328PB communicates with the two other boards using the two UART ports. 
+
 SRS 05 - Utilize Timer 1's interrupt to detect the reflected signal via the echo pin and translate the echo signal's time into a distance. 
 
+This was successfully accomplished. We often checked pin PD3 using the oscilloscope to ensure that interrupt is being triggered as expected (and saw that it was). 
+
 SRS 06 - There shall be a wireless IoT based control mechanism allowing for manual control of the vehicle through the Blynk app.
+
+We were able to successfully integrate this. We utilized an ESP32 and UART protocol for wireless communication via the Blynk app, thus allowing for control of the vehicle via the app. 
 
 
 #### 3.2 Hardware Requirements Specification (HRS) Results
@@ -145,7 +151,8 @@ SRS 06 - There shall be a wireless IoT based control mechanism allowing for manu
 Based on your quantified system performance, comment on how you achieved or fell short of your expected hardware requirements. You should be quantifying this, using measurement tools to collect data.
 
 HRS 01 - Our system shall use two ATMEGA328PBs - One to control the LCD screen and the other to control the movement of the autonomous vehicle itself. 
-This is exactly what we implemented. By dividing the two tasks into two atmegas, we achieved modularity and allowed much easier testing and debuging. 
+
+This is exactly what we implemented. By dividing the two tasks between two ATMEGA328PBs, we achieved modularity and allowed for much easier testing and debugging. In previous labs, we were informed that performing UART for printing in addition to controlling the LCD screen is hard to achieve using one ATMEGA328PB, which is why we used a second ATMEGA328PB to control the LCD screen which displays the radar. 
 
 HRS 02 - An ultrasonic sensor shall be used for obstacle detection. It shall detect obstacles at a distance 12 cm or closer from the front of the vehicle. 
 
