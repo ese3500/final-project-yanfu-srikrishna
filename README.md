@@ -152,6 +152,8 @@ This worked. Based on our repeated testing and measurements, we noticed that whe
 
 HRS 03 - The ultrasonic sensor shall be mounted on top of a servo motor. The servo motor should rotate 360 degrees to help enable scanning for obstacles around the vehicle by the ultrasonic sensor.
 
+We were able to partially implement this, in that our servo motor only rotates 180 degrees, but this change was intentional due to the requirements of our project. Firstly, the servo motor that we used can only rotate 270 degrees, not the full 360 degrees. We also realized that based on how we mounted the servo, if we performed a full 360 degree rotation, the servo would face the chassis, registering mistakenly a distance less than 12 cm (thereby "detecting" an obstacle and trying its best to rotate). For this reason, limited ourselves to a 180 degree rotation.  
+
 HRS 04 - We shall use an ESP32 for interfacing with the Blynk app, thereby enabling wireless control of the vehicle via phone.
 
 HRS 05 - We shall utilize a 128x160 LCD screen to display a radar indicating the ultrasonic sensor's sweep. The display will interface with the corresponding ATMEGA328PB through the SPI protocol.
