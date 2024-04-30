@@ -8,12 +8,13 @@
   <!-- Mobile Metas -->
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <!-- Site Metas -->
-  <link rel="icon" href="images/favicon.png" type="image/gif" />
+  <link rel="icon" href="images/favicon.jpg" type="image/gif" />
   <meta name="keywords" content="" />
   <meta name="description" content="" />
   <meta name="author" content="" />
 
-  <title>Healet</title>
+  <title>Deep's Dynamo
+  </title>
 
   <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
@@ -34,7 +35,7 @@
       <nav class="navbar navbar-expand-lg custom_nav-container">
         <a class="navbar-brand" href="index.html">
           <span>
-            Healet
+            Deep's Dynamo
           </span>
         </a>
         <div class="" id="">
@@ -413,11 +414,21 @@
                 Software Requirement Specification
               </h5>
               <p>
-                alteration in some form, by injected humour, or randomised words which don't look even slightly believable.
+                SRS 01 - Timer 0, an 8-bit timer, shall be used to control the motor in PWM mode.
               </p>
-              <a href="">
-                Read More
-              </a>
+            <p>
+              SRS 02 - Timer 1, a 16-bit timer, shall be used to control the echo pin of the ultrasonic sensor in PWM mode.
+            </p>
+            <p>
+              SRS 03 - Timer 2, an 8-bit timer, shall be used to control the trigger pin of the ultrasonic sensor in PWM mode.
+              </p>
+              <p>
+                SRS 04 - The UART serial communication protocol shall be used to send commands between the two ATMEGA328PBs as well as between the one ATMEGA328PB and the ESP32.
+              </p>
+               <p>
+                SRS 05 - Utilize Timer 1's interrupt to detect the reflected signal via the echo pin and translate the echo signal's time into a distance.
+              </p>
+            
             </div>
           </div>
         </div>
@@ -431,11 +442,21 @@
                 Hardware Requirement Specification
               </h5>
               <p>
-                alteration in some form, by injected humour, or randomised words which don't look even slightly believable.
+                HRS 01 - Our system shall use two ATMEGA328PBs - One to control the LCD screen and the other to control the movement of the autonomous vehicle itself.
               </p>
-              <a href="">
-                Read More
-              </a>
+              <p> 
+                HRS 02 - An ultrasonic sensor shall be used for obstacle detection. It shall detect obstacles at a distance 12cm or closer from the front of the vehicle.
+              </p>
+              <p> 
+                HRS 03 - The ultrasonic sensor shall be mounted on top of a servo motor. The servo motor should rotate 360 degrees to help enable scanning for obstacles around the vehicle by the ultrasonic sensor.
+              </p>
+              <p> 
+                HRS 04 - We shall use an ESP32 for interfacing with the Blynk app, thereby enabling wireless control of the vehicle via phone.
+              </p>
+              <p>
+                HRS 05 - We shall utilize a 128x160 LCD screen to display a radar indicating the ultrasonic sensor's sweep. The display will interface with the corresponding ATMEGA328PB through the SPI protocol.
+              </p>
+            
             </div>
           </div>
         </div>
