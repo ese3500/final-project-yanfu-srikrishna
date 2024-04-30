@@ -415,20 +415,44 @@
               <h5>
                 Software Requirement Specification
               </h5>
-              <p>
+              <p> <b>
                 SRS 01 - Timer 0, an 8-bit timer, shall be used to control the motor in PWM mode.
+              </b></p>
+              <p>
+              This is exactly what we implemented! We set up the registers/pins properly to enable Timer 0, and connected the servo motor's PWM pin to PD5 (the pin associated with Timer 0). Note that for the PWM mode, we chose phase-correct PWM since the signals are symmetric. 
               </p>
             <p>
+              <b> 
               SRS 02 - Timer 1, a 16-bit timer, shall be used to control the echo pin of the ultrasonic sensor in PWM mode.
+              </b>
+            </p>
+            <p> 
+This is exactly what we implemented! We set up the registers/pins properly to enable Timer 1, and connected the servo motor's PWM pin to PB0 (the pin associated with Timer 1). Note that for the PWM mode, we chose phase-correct PWM since the signals are symmetric. 
             </p>
             <p>
+              <b>
               SRS 03 - Timer 2, an 8-bit timer, shall be used to control the trigger pin of the ultrasonic sensor in PWM mode.
+              </b>
+            </p>
+            <p>
+              This is exactly what we implemented! We set up the registers/pins properly to enable Timer 2, and connected the servo motor's PWM pin to PD3 (the pin associated with Timer 2). Note that for the PWM mode, we chose phase-correct PWM since the signals are symmetric.
+            </p>
+              <p>
+                <b> 
+                SRS 04 - The UART serial communication protocol shall be used to send commands between the two ATMEGA328PBs as well as between the one ATMEGA328PB and the ESP32.              </p>
+                </b>
+                <p>
+              <p> 
+                We accomplish exactly this by utilizing 1 Atmega as the "central" atmega and communicate the untrasonic sweeping angles to the other atmega.
+              </p>
+
+              <p>
+                <b>
+                  SRS 05 - Utilize Timer 1's interrupt to detect the reflected signal via the echo pin and translate the echo signal's time into a distance.
+                </b>
               </p>
               <p>
-                SRS 04 - The UART serial communication protocol shall be used to send commands between the two ATMEGA328PBs as well as between the one ATMEGA328PB and the ESP32.
-              </p>
-               <p>
-                SRS 05 - Utilize Timer 1's interrupt to detect the reflected signal via the echo pin and translate the echo signal's time into a distance.
+                This is exactly what we implemented by utilizing timer 1 to calculate the between a trigger pulse is sent and a echo pulse is received. 
               </p>
             
             </div>
