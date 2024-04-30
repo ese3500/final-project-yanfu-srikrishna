@@ -144,44 +144,41 @@ int min(int x, int y) {
 }
 void LCD_drawLine(short x0,short y0,short x1,short y1,uint16_t c)
 {
-
-		uint8_t minX = min(x0, x1);
-		uint8_t maxX = max(x0, x1);
-		short deltaX = x1 - x0;
-		uint8_t absDeltaX = maxX - minX;
-
-		uint8_t minY = min(y0, y1);
-		uint8_t maxY = max(y0, y1);
-		short deltaY = y1 - y0;
-		uint8_t absDeltaY = maxY - minY;
-
-		if (deltaX == 0 || deltaY == 0) {
-			LCD_drawBlock(x0, y0, x1, y1, c);
-			return;
+	
+	int dy = y1 - y0;
+	int dx = x1 - x0; 
+	int d = 2*(dy + dx);
+	int x = x0;
+	int y = y0; 
+	int sx;
+	int sy; 
+	int e = dx + dy; 
+	double m = dy*1.0/dx; 
+	
+	//case the final and initial points are flipped 
+	if(x1 < x0) {
+		int temp = x0;
+		x0 = x1;
+		x1 = temp; 
+	}
+	if(y1 < y0) {
+		int temp = y0;
+		y0 = y1;
+		y1 = temp; 
+	}
+	
+	//case verticle line
+	if(x0 == x1) {
+		for(int i = y0; i < y1; i++) {
+			LCD_drawPixel(x,i,c); 
 		}
-
-		if (absDeltaX >= absDeltaY) {
-			// |slope| <= 1
-			for (uint8_t x = minX; x <= maxX; x++) {
-				uint8_t y = (deltaY * (x - minX)) / (absDeltaX) + y0;
-				LCD_drawPixel(x, y, c);
-			}
-		} 
-		
-		
-		else {
-			// |slope| > 1
-			/*
-			for (uint8_t y = minY; y <= maxY; y++) {
-				uint8_t x = (deltaX * (y - minY)) / (absDeltaY) + x0;
-				LCD_drawPixel(x, y, c);
-			}
-			*/
-			 for (uint8_t x = minX; x <= maxX; x++) {
-				uint8_t y = (deltaY * (x - minX)) / absDeltaX + y0;
-				  LCD_drawPixel(x, y, c);
-		     }
+	}
+	else {
+		for(int i = x0; i < x1; i++) {
+		y = dy*(i - x0)/dx + y0; 
+		LCD_drawPixel(i,y,c); 
 		}
+	}
 		
 	
 }
