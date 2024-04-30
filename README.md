@@ -160,7 +160,7 @@ Fill in your references here as you work on your proposal and final submission. 
 2) We used the Blynk library from Lab 4 to enable manual control of the motors via the Blynk app using the ESP32.
 3) We used the uart.c library file provided in prior labs to enable sending of data from the ATMEGA328PB.
 ### Appendix
-1) We used the HardwareSerial library (https://github.com/espressif/arduino-esp32/blob/master/cores/esp32/HardwareSerial.h) to facilitate serial communication between the Atmega328PB and ESP32. This library was not provided in any of the labs, but is an open source one that we decided to use. The library 
+1) We used the HardwareSerial library (https://github.com/espressif/arduino-esp32/blob/master/cores/esp32/HardwareSerial.h) to facilitate serial communication between the Atmega328PB and ESP32. This library was not provided in any of the labs, but is an open source one that we decided to use. The library provides an interface to communicate with hardware serial ports (RX and TX) on the ESP32 microcontroller. It allows for the sending and receiving of data using the UART communication protocol. 
 
 ## Github Repo Submission Resources
 
