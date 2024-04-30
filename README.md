@@ -123,6 +123,8 @@ Based on your quantified system performance, comment on how you achieved or fell
 
 SRS 01 - Timer 0, an 8-bit timer, shall be used to control the motor in PWM mode. 
 
+This is exactly what we implemented! We set up the registers/pins properly to enable Timer 0, and connected the servo motor's PWM pin to 
+
 SRS 02 - Timer 1, a 16-bit timer, shall be used to control the echo pin of the ultrasonic sensor in PWM mode.
 
 SRS 03 - Timer 2, an 8-bit timer, shall be used to control the trigger pin of the ultrasonic sensor in PWM mode. 
