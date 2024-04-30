@@ -156,7 +156,8 @@ Overall, we feel that our project was a success since we were able to meet the g
 Fill in your references here as you work on your proposal and final submission. Describe any libraries used here.
 1) We used the LCD library from Lab 4:Pong to draw the radar on the LCD screen.  
 2) We used the Blynk library from Lab 4 to enable manual control of the motors via the Blynk app using the ESP32.
-3) We used the HardwareSerial library (https://github.com/espressif/arduino-esp32/blob/master/cores/esp32/HardwareSerial.h) to facilitate serial communication between the Atmega328PB and ESP32. This library was not provided in any of the labs, but is an open source one that we decided to use. The library 
+3) We used the uart.c library file provided in prior labs to enable sending of data from the ATMEGA328PB.
+4) We used the HardwareSerial library (https://github.com/espressif/arduino-esp32/blob/master/cores/esp32/HardwareSerial.h) to facilitate serial communication between the Atmega328PB and ESP32. This library was not provided in any of the labs, but is an open source one that we decided to use. The library 
 
 ## Github Repo Submission Resources
 
