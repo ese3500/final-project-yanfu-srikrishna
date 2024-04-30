@@ -445,6 +445,10 @@ a:focus {
   color: #fd9c6b;
 }
 
+.about_section {
+  margin-top: 100px;
+}
+
 .about_section .row {
   -webkit-box-align: center;
       -ms-flex-align: center;
