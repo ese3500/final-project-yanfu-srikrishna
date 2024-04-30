@@ -117,19 +117,28 @@ Our final project, Deep's Dynamo, involved an autonomous vehicle that has the ab
 Based on your quantified system performance, comment on how you achieved or fell short of your expected software requirements. You should be quantifying this, using measurement tools to collect data.
 
 SRS 01 - 
+
 SRS 02 - 
+
 SRS 03 - 
+
 SRS 04 - 
+
 SRS 05 - 
+
 
 #### 3.2 Hardware Requirements Specification (HRS) Results
 
 Based on your quantified system performance, comment on how you achieved or fell short of your expected hardware requirements. You should be quantifying this, using measurement tools to collect data.
 
 HRS 01 - Our system shall use two ATMEGA328PBs - One to control the LCD screen and the other to control the movement of the autonomous vehicle itself. 
+
 HRS 02 - An ultrasonic sensor shall be used for obstacle detection. It shall detect obstacles at a distance 12cm or closer from the front of the vehicle. 
+
 HRS 03 - The ultrasonic sensor shall be mounted on top of a servo motor. The servo motor should rotate 360 degrees to help enable scanning for obstacles around the vehicle by the ultrasonic sensor.
+
 HRS 04 - We shall use an ESP32 for interfacing with the Blynk app, thereby enabling wireless control of the vehicle via phone.
+
 HRS 05 - 
 
 ### 4. Conclusion
