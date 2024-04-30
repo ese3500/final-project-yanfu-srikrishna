@@ -116,13 +116,13 @@ Our final project, Deep's Dynamo, involved an autonomous vehicle that has the ab
 
 Based on your quantified system performance, comment on how you achieved or fell short of your expected software requirements. You should be quantifying this, using measurement tools to collect data.
 
-SRS 01 - 
+SRS 01 - Timer 0, an 8-bit timer, shall be used to control the motor in PWM mode. 
 
-SRS 02 - 
+SRS 02 - Timer 1, a 16-bit timer, shall be used to control the echo pin of the ultrasonic sensor in PWM mode.
 
-SRS 03 - 
+SRS 03 - Timer 2, an 8-bit timer, shall be used to control the trigger pin of the ultrasonic sensor in PWM mode. 
 
-SRS 04 - 
+SRS 04 - The UART serial communication protocol shall be used to send commands between the two ATMEGA328PBs as well as between the one ATMEGA328PB and the ESP32. 
 
 SRS 05 - 
 
@@ -150,7 +150,7 @@ Overall, we feel that our project was a success since we were able to meet the g
 
 Fill in your references here as you work on your proposal and final submission. Describe any libraries used here.
 1) We used the LCD library from Lab 4:Pong to draw the radar on the LCD screen.  
-2) We used the Blynk library to enable manual control of the motors via the Blynk app using the ESP32.
+2) We used the Blynk library from Lab 4 to enable manual control of the motors via the Blynk app using the ESP32.
 3) We used the HardwareSerial library to facilitate serial communication between the Atmega328PB and ESP32. 
 
 ## Github Repo Submission Resources
