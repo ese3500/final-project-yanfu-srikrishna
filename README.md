@@ -170,6 +170,10 @@ HRS 05 - We shall utilize a 128x160 LCD screen to display a radar indicating the
 
 We were able to successfully complete this. A second ATMEGA328PB was necessary to utilize printing to the data visualizer in addition to using the LCD screen. 
 
+HRS 06 - There shall be a power management system in place to avoid powering using a laptop.
+
+We were able to accomplish this to some extent. We had a power bank that served sufficient for powering the two Atmegas and the ESP32 all at the same time. The halbot had a separate built-in power management system which powered the wheels etc. We did face some issues during the development process in terms of managing the current - evidenced by burning through 2 ATMEGA328PBs and having smoke emit from the first halbot system used. The servo motor was also found to draw significant power, which is why we included an inverter made of power transistors to take in the PWM signal from the ATMEGA328PB and output the signal to the servo motor. 
+
 ### 4. Conclusion
 
 Reflect on your project. Some questions to consider: What did you learn from it? What went well? What accomplishments are you proud of? What did you learn/gain from this experience? Did you have to change your approach? What could have been done differently? Did you encounter obstacles that you didn’t anticipate? What could be a next step for this project?
