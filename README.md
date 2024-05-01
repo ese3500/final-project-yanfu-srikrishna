@@ -123,7 +123,7 @@ Based on your quantified system performance, comment on how you achieved or fell
 
 SRS 01 - Timer 0, an 8-bit timer, shall be used to control the motor in phase correct PWM mode. 
 
-This is exactly what we implemented! We set up the registers/pins properly to enable Timer 0, and connected the servo motor's PWM pin to PD5 (the pin associated with Timer 0). Note that for the PWM mode, we chose phase-correct PWM since we must easily vary the duty cycle to control the servo position.
+This is exactly what we implemented! We set up the registers/pins properly to enable Timer 0, and connected the servo motor's PWM pin to PD5 (the pin associated with Timer 0). Note that for the PWM mode, we chose phase-correct PWM since we should be able to easily vary the duty cycle to control the servo position.
 
 SRS 02 - Timer 1, a 16-bit timer, shall be used to control the echo pin of the ultrasonic sensor in PWM mode.
 
@@ -139,7 +139,7 @@ This is exactly what was done. We utilized the fact that there are two UART port
 
 SRS 05 - Utilize Timer 1's interrupt to detect the reflected signal via the echo pin and translate the echo signal's time into a distance. 
 
-This was successfully accomplished. We often checked pin PD3 using the oscilloscope to ensure that interrupt is being triggered as expected (and saw that it was). 
+This was successfully accomplished. We often checked pin PD3 using the oscilloscope to ensure that the interrupt was being triggered as expected (and saw that it was). 
 
 SRS 06 - There shall be a wireless IoT based control mechanism allowing for manual control of the vehicle through the Blynk app.
 
@@ -150,17 +150,17 @@ We were able to successfully integrate this. We utilized an ESP32 and UART proto
 
 Based on your quantified system performance, comment on how you achieved or fell short of your expected hardware requirements. You should be quantifying this, using measurement tools to collect data.
 
-HRS 01 - Our system shall use two ATMEGA328PBs - One to control the LCD screen and the other to control all the timers that controls the ultrasonic sensor trigger and echo, as well as the servo that turns the ultrasonic sensor. 
+HRS 01 - Our system shall use two ATMEGA328PBs - One to control the LCD screen and the other to manage all the timers that control the ultrasonic sensor's trigger and echo, as well as the servo that turns the ultrasonic sensor. 
 
 This is exactly what we implemented. By dividing the two tasks between two ATMEGA328PBs, we achieved modularity and allowed for much easier testing and debugging. In previous labs, we were informed that performing UART for printing in addition to controlling the LCD screen is hard to achieve using one ATMEGA328PB, which is why we used a second ATMEGA328PB to control the LCD screen which displays the radar. We ended up using the first Atmega328PB to send ultrasonic sensor servo angle information to the second Atmega328PB via UART. 
 
 HRS 02 - An ultrasonic sensor shall be used for obstacle detection. It shall detect obstacles at a distance of 12 cm or closer from the front of the vehicle. 
 
-This worked. Based on our repeated testing and measurements, we noticed that whenever an obstacle was indeed 12 cm or closer, the vehicle would properly stop its advance, turn and avoid the obstacle. This was successfully implemented due to proper mounting of the ultrasonic sensor on top of the servo motor, in addition to setting up the appropriate formula for calculating distance as dictated by the datasheet of the ultrasonic sensor. 
+This worked. Based on our repeated testing and measurements, we noticed that whenever an obstacle was indeed 12 cm or closer, the vehicle would properly stop its advance, turn, and avoid the obstacle. This was successfully implemented due to proper mounting of the ultrasonic sensor on top of the servo motor, in addition to setting up the appropriate formula for calculating distance as dictated by the datasheet of the ultrasonic sensor. 
 
 HRS 03 - The ultrasonic sensor shall be mounted on top of a servo motor. The servo motor should rotate 360 degrees to help enable scanning for obstacles around the vehicle by the ultrasonic sensor.
 
-We were able to partially implement this, in that our servo motor only rotates 180 degrees, but this change was intentional due to the requirements of our project. Firstly, the servo motor that we used can only rotate 270 degrees, not the full 360 degrees. We also realized that based on how we mounted the servo, if we performed a full 360 degree rotation, the servo would face the chassis, registering mistakenly a distance less than 12 cm (thereby "detecting" an obstacle and trying its best to rotate). For this reason, limited ourselves to a 180 degree rotation.  
+We were able to partially implement this, in that our servo motor only rotates 180 degrees, but this change was intentional due to the requirements of our project. Firstly, the servo motor that we used can only rotate 270 degrees, not the full 360 degrees. We also realized that based on how we mounted the servo, if we performed a full 360 degree rotation, the servo would face the chassis, registering mistakenly a distance less than 12 cm (thereby "detecting" an obstacle and trying its best to rotate). For this reason, we limited ourselves to a 180 degree rotation.  
 
 HRS 04 - We shall use an ESP32 for interfacing with the Blynk app, thereby enabling wireless control of the vehicle via phone.
 
@@ -172,7 +172,7 @@ We were able to successfully complete this. A second ATMEGA328PB was necessary t
 
 HRS 06 - There shall be a power management system in place to avoid powering using a laptop.
 
-We were able to accomplish this to some extent. We had a power bank that served sufficient for powering the two Atmegas and the ESP32 all at the same time. The halbot had a separate built-in power management system which powered the wheels etc. We did face some issues during the development process in terms of managing the current - evidenced by burning through 2 ATMEGA328PBs and having smoke emit from the first halbot system used. The servo motor was also found to draw significant power, which is why we included an inverter made of power transistors to take in the PWM signal from the ATMEGA328PB and output the signal to the servo motor. 
+We were able to accomplish this to some extent. We had a power bank that was sufficient for powering the two Atmegas and the ESP32 all at the same time. The halbot had a separate built-in power management system that powered the wheels etc. We did face some issues during the development process in terms of managing the current - evidenced by burning through 2 ATMEGA328PBs and having smoke emit from the first halbot system used. The servo motor was also found to draw significant power, which is why we included an inverter made of power transistors to take in the PWM signal from the ATMEGA328PB and output the signal to the servo motor. 
 
 ### 4. Conclusion
 
@@ -193,7 +193,7 @@ Fill in your references here as you work on your proposal and final submission. 
 2) We used the Blynk library from Lab 4 to enable manual control of the motors via the Blynk app using the ESP32.
 3) We used the uart.c library file provided in prior labs to enable sending of data from the ATMEGA328PB.
 ### Appendix
-We used the HardwareSerial library (https://github.com/espressif/arduino-esp32/blob/master/cores/esp32/HardwareSerial.h) to facilitate serial communication between the Atmega328PB and ESP32. This library was not provided in any of the labs, but is an open-source one that we found useful and decided to use. The library provides an interface to communicate with hardware serial ports (RX and TX) on the ESP32 microcontroller. It allows for the sending and receiving of data using the UART communication protocol. The ESP32 itself has 3 hardware serial ports, with the first one (UART0) being reserved for programmming the device itself, leaving the other two ports (UART1 and UART2) available for use in a project - exactly what this library enables by defining the pins associated with UART0, UART1, and UART2.
+We used the HardwareSerial library (https://github.com/espressif/arduino-esp32/blob/master/cores/esp32/HardwareSerial.h) to facilitate serial communication between the Atmega328PB and ESP32. This library was not provided in any of the labs, but is an open-source one that we found useful and decided to use. The library provides an interface to communicate with hardware serial ports (RX and TX) on the ESP32 microcontroller. It allows for the sending and receiving of data using the UART communication protocol. The ESP32 itself has 3 hardware serial ports, with the first one (UART0) being reserved for programming the device itself, leaving the other two ports (UART1 and UART2) available for use in a project - exactly what this library enables by defining the pins associated with UART0, UART1, and UART2.
   
 The library provides a way of setting up the parameters and configuration for the serial communication, with many options provided in "enum SerialConfig". For example, in our project, we stuck with the commonly used "SERIAL_8N1", meaning whenever data is sent, there will be one start bit, eight data bits, no parity bit, and one stop bit. Furthermore, the baud rate, or the rate at which data is being transmitted, can be specified for each of the hardware serial ports. The library defines many methods for configuring and interacting with the serial ports. "Begin" starts the serial communication process at a certain baud rate; "end" finishes the serial communication process; "write" allows for the sending of data; "read" allows for receiving and decoding the incoming data; "available" checks and returns the number of bytes which are available for reading within the specified serial port etc. In this project, we used UART1 to receive data using the ESP32, and whenever bytes are available for reading, we read the incoming data and print it out using UART0. 
 
