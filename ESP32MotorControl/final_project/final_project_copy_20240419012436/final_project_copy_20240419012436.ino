@@ -11,9 +11,9 @@ const char* password = "12345678";
 #include <BlynkSimpleEsp32.h>
 #include <HardwareSerial.h>
 
-HardwareSerial MySerial(2); // define a Serial for UART1
-const int MySerialRX = 16;
-const int MySerialTX = 17;
+HardwareSerial serialTWO(2); // define a Serial for UART1
+const int RX = 16;
+const int TX = 17;
 
 #define LEFT_A 14
 #define LEFT_B 15
@@ -34,7 +34,7 @@ int blynkValueV3;
 
 void setup() {
   Serial.begin(9600);
-  MySerial.begin(9600, SERIAL_8N1, MySerialRX, MySerialTX);
+  serialTWO.begin(9600, SERIAL_8N1, RX, TX);
 
   Blynk.begin(auth, ssid, password);
   pinMode(LEFT_A, OUTPUT);
@@ -92,11 +92,11 @@ BLYNK_WRITE(V3)
 }
 void loop()
 {
-  // here we could use our MySerial normally
+  // here we could use our serialTWO normally
   uint8_t byteFromSerial;
   char byteChar;
-  while (MySerial.available() > 0) {
-  byteFromSerial = MySerial.read();
+  while (serialTWO.available() > 0) {
+  byteFromSerial = serialTWO.read();
   byteChar = (char)byteFromSerial;
   Serial.println(byteChar);
   if (byteChar == 'f') {
