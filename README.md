@@ -4,8 +4,8 @@
     * Team Name: Deep's Dynamo
     * Team Members: Yanfu Ou and Srikrishna Chakravarthi
     * Github Repository URL: https://github.com/ese3500/final-project-yanfu-srikrishna
-    * Github Pages Website URL: [for final submission]
-    * Description of hardware: HP ENVY x360, MacBook Air (embedded hardware, laptop, etc) 
+    * Github Pages Website URL: https://ese3500.github.io/final-project-yanfu-srikrishna/ 
+    * Description of hardware: HP ENVY x360, MacBook Air M1(embedded hardware, laptop, etc) 
 
 ## Final Project Proposal
 
