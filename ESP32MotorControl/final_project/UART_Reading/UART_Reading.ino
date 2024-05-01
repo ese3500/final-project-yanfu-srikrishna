@@ -1,6 +1,6 @@
 #include <HardwareSerial.h>
 
-HardwareSerial MySerial(2); // define a Serial for UART1
+HardwareSerial SerialTWO(2); // define a Serial for UART1
 const int RX = 16;
 const int TX = 17;
 
@@ -13,10 +13,9 @@ SerialTWO.begin(9600, SERIAL_8N1, RX, TX);
 
 void loop()
 {
-// here we could use our MySerial normally
-while (MySerial.available() > 0) {
-uint8_t byteFromSerial = MySerial.read();
+// here we could use our SerialTWO normally
+while (SerialTWO.available() > 0) {
+uint8_t byteFromSerial = SerialTWO.read();
 Serial.println((char) byteFromSerial);
 }
-// MySerial.write(...);
 }
