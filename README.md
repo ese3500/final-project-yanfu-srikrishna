@@ -123,7 +123,7 @@ Based on your quantified system performance, comment on how you achieved or fell
 
 SRS 01 - Timer 0, an 8-bit timer, shall be used to control the motor in phase correct PWM mode. 
 
-This is exactly what we implemented! We set up the registers/pins properly to enable Timer 0, and connected the servo motor's PWM pin to PD5 (the pin associated with Timer 0). Note that for the PWM mode, we chose phase-correct PWM since we must easily vary the duty cycle to control the servo prosition.
+This is exactly what we implemented! We set up the registers/pins properly to enable Timer 0, and connected the servo motor's PWM pin to PD5 (the pin associated with Timer 0). Note that for the PWM mode, we chose phase-correct PWM since we must easily vary the duty cycle to control the servo position.
 
 SRS 02 - Timer 1, a 16-bit timer, shall be used to control the echo pin of the ultrasonic sensor in PWM mode.
 
