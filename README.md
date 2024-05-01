@@ -127,11 +127,11 @@ This is exactly what we implemented! We set up the registers/pins properly to en
 
 SRS 02 - Timer 1, a 16-bit timer, shall be used to control the echo pin of the ultrasonic sensor in PWM mode.
 
-This is exactly what we implemented! We set up the registers/pins properly to enable Timer 1, and connected the servo motor's PWM pin to PB0 (the pin associated with Timer 1). Note that for the PWM mode, we chose phase-correct PWM since the signals are symmetric.
+This is exactly what we implemented! We set up the registers/pins properly to enable Timer 1, and connected the ultrasonic sensor's PWM pin to PB0 (the pin associated with Timer 1). Note that for the PWM mode, we chose phase-correct PWM since the signals are symmetric.
 
 SRS 03 - Timer 2, an 8-bit timer, shall be used to control the trigger pin of the ultrasonic sensor in PWM mode. 
 
-This is exactly what we implemented! We set up the registers/pins properly to enable Timer 2, and connected the servo motor's PWM pin to PD3 (the pin associated with Timer 2). Note that for the PWM mode, we chose phase-correct PWM since the signals are symmetric.
+This is exactly what we implemented! We set up the registers/pins properly to enable Timer 2, and connected the ultrasonic sensor's PWM pin to PD3 (the pin associated with Timer 2). Note that for the PWM mode, we chose phase-correct PWM since the signals are symmetric.
 
 SRS 04 - The UART serial communication protocol shall be used to send commands between the two ATMEGA328PBs as well as between the one ATMEGA328PB and the ESP32. 
 
