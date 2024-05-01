@@ -116,39 +116,7 @@ void loop()
   }
   }
   Blynk.run();
-  /**
-  Serial.print("V0 value: ");
-  Serial.println(blynkValueV0);
-  Serial.print("V1 value: ");
-  Serial.println(blynkValueV1);
-  Serial.print("V2 value: ");
-  Serial.println(blynkValueV2);
-  Serial.print("V3 value: ");
-  Serial.println(blynkValueV3);
-  */
 }
-/**
-void loop() {
-  forward();
-  delay(500);
-  stop();
-  delay(500);
-  backward();
-  delay(500);
-  stop();
-  delay(500);
-  turnLeft();
-  delay(500);
-  stop();
-  delay(500);
-  turnRight();
-  delay(500);
-  stop();
-  delay(500);
-  stop();
-  delay(2000);
-}
-**/
 void stop(){
   digitalWrite(LEFT_A, LOW);
   digitalWrite(LEFT_B, LOW);
