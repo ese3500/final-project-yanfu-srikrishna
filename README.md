@@ -7,7 +7,7 @@
     * Github Pages Website URL: https://ese3500.github.io/final-project-yanfu-srikrishna/ 
     * Description of hardware: HP ENVY x360, MacBook Air M1(embedded hardware, laptop, etc) 
 
-## NOTE: Please check the "final project submission" branch for our final code.
+## NOTE: Please check the "FinalProjectSubmission" branch for our final code.
 
 ## Final Project Proposal
 
